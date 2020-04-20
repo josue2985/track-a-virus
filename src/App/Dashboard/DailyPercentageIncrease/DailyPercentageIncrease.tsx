@@ -45,7 +45,7 @@ const DailyPercentageIncrease: FC<Props> = ({ data, countryColors }) => {
 
   return (
     <>
-      <div>Daily increase %</div>
+      <div>Porcentaje de Incremento Diario %</div>
       <Chart
         data={calculateDailyPercentageIncrease(data)}
         countryColors={countryColors}

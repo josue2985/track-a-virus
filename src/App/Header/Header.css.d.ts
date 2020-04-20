@@ -1,11 +1,9 @@
 export interface IHeaderCss {
-  banner: string;
-  header: string;
-  hidden: string;
-  logo: string;
+  active: string;
+  icon: string;
   menu: string;
-  'menu-toggle': string;
-  visible: string;
+  nav__container: string;
+  stack__logo: string;
 }
 
 export const locals: IHeaderCss;

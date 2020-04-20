@@ -1,10 +1,65 @@
-:root {
-  --logo-font-size: 1.2rem;
+.stack__logo {
+  padding: 20px 0px 0px 25px;
+}
+.nav__container {
+  margin-top:70px;
+}
+.menu {
+  display: flex;
+  color:var(--bastilla);
+  line-height: 3.4;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+.menu:hover {
+  opacity: 0.6;
+}
+.menu:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  margin-right: 5px;
+  height: 37px;
+  width: 8px;
+  border-radius: 50px;
+  left: -3px;
+  background: transparent;
 }
 
+.menu.active {
+  color:var(--violet-menu);
+}
+.menu.active:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  margin-right: 5px;
+  height: 37px;
+  width: 8px;
+  border-radius: 50px;
+  left: -3px;
+  background: var(--orange);
+}
+.menu i svg.icon {
+  fill:var(--bastilla);
+  stroke:var(--bastilla);
+  height: 20px;
+  padding: 16px 3px 0px 5px;
+}
+.menu.active i svg.icon {
+  fill:var(--orange);
+  stroke:var(--orange);
+}
+
+
+/* 
+
 .header {
-  background: #515151;
-  color: #fff;
+  background: var(--white);
+  color: var(--bastilla);
   width: 100%;
   z-index: 10;
   top: 0;
@@ -24,7 +79,7 @@
 }
 
 .header a {
-  color: #fff;
+  color: var(--bastilla);
   text-decoration: none;
 }
 
@@ -38,7 +93,7 @@
 
 .menu-toggle {
   display: block;
-  color: #fff;
+  color: var(--bastilla);
   position: absolute;
   top: 5px;
   right: 30px;
@@ -102,4 +157,4 @@
     border: 0px;
     font-size: 1rem;
   }
-}
+} */

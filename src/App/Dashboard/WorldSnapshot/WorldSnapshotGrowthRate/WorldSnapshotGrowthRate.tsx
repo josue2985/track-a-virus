@@ -16,7 +16,8 @@ const WorldSnapshotGrowthRate: FC<Props> = ({ growthRate }) => {
   return (
     <span className={className}>
       {String.fromCharCode(arrow)}
-      {(growthRate * 100).toFixed(2)}% over 3 days average
+      {(growthRate * 100).toFixed(2)}% 
+      {/* over 3 days average */}
     </span>
   );
 };

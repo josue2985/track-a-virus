@@ -24,48 +24,61 @@ interface SelectOption {
   label: string;
 }
 
-const renderDataForSelectedCountries = (
-  title: string,
-  data: Timeseries,
-  countryColors: CountryColors
-) => (
-  <>
-    <div className={styles['span-all-col']}>
-      <h1>{title}</h1>
-    </div>
-    <div>
-      <DailyCases data={data} countryColors={countryColors} />
-    </div>
-    <div>
-      <DailyAbsoluteIncrease data={data} countryColors={countryColors} />
-    </div>
-    <div>
-      <DailyPercentageIncrease data={data} countryColors={countryColors} />
-    </div>
-  </>
-);
-
+// select input
 const renderCountrySelector = (
   allCountries: string[],
   countriesToCompare: SelectOption[],
   setCountriesToCompare: Dispatch<SetStateAction<SelectOption[]>>
 ) => (
   <>
-    <label htmlFor='countrySelector'>
-      Select a country or a few to dive in &amp; compare
-    </label>
-    <Select
-      inputId='countrySelector'
-      options={getCountrySelectOptions(allCountries)}
-      isMulti
-      value={countriesToCompare}
-      onChange={(selected) => {
-        setCountriesToCompare(selected as SelectOption[]);
-      }}
-      placeholder="Select countries to compare. Type 'World' for the worldwide data"
-      className={styles.select}
-      classNamePrefix='select'
-    />
+  <div className={styles.input__container}>
+    <div className={styles.section__label}>
+      <label htmlFor='countrySelector'>
+        Selecciona <strong>uno o varios</strong> países para visualizar y comparar.
+      </label>
+    </div>
+    <div className={styles.section__input}>
+      <Select
+          inputId='countrySelector'
+          options={getCountrySelectOptions(allCountries)}
+          isMulti
+          value={countriesToCompare}
+          onChange={(selected) => {
+            setCountriesToCompare(selected as SelectOption[]);
+          }}
+          placeholder="Selecciona los países que necesitas comparar. Escribe ¨world¨ para conocer el impacto global"
+          className={styles.select}
+          classNamePrefix='select'
+        />
+    </div>
+  </div>
+  
+  </>
+);
+// stadistics graphs
+const renderDataForSelectedCountries = (
+  title: string,
+  data: Timeseries,
+  countryColors: CountryColors,
+) => (
+  <>
+    <div className={styles.graphs__wrapper}>
+      <div className={styles.graphs__title}>
+        <div className={styles.title__text}>{title}</div>
+      </div>
+      <div
+      className={`${styles['graphs__dailycases']} ${styles['graphs__box']}`}>
+        <DailyCases data={data} countryColors={countryColors} />
+      </div>
+      <div 
+      className={`${styles['graphs__dailyincrease']} ${styles['graphs__box']}`}>
+        <DailyAbsoluteIncrease data={data} countryColors={countryColors} />
+      </div>
+      <div 
+      className={`${styles['graphs__percentageincrease']} ${styles['graphs__box']}`}>
+        <DailyPercentageIncrease data={data} countryColors={countryColors} />
+      </div>
+    </div>
   </>
 );
 
@@ -75,42 +88,52 @@ const renderDashboard = (
   setCountriesToCompare: Dispatch<SetStateAction<SelectOption[]>>
 ) => (
   <>
-    <div className={styles['span-all-col']}>
-      <div>
-        <h1 className={styles.inline}>World snapshot data</h1> (updated on{' '}
-        {dashboardStore.dateUpdated})
+    <div className={styles.dashboard__wrapper}>
+      <div className={styles.snapshot__section}>
+        <div className={styles.titles}>
+          <h1>Impacto Global&nbsp;</h1> 
+          <span className={styles.notes__update}>
+            (Última actualización:{' '}
+            {dashboardStore.dateUpdated})
+          </span>
+        </div>
+        <div>
+          <WorldSnapshot
+            cases={dashboardStore.allCases.countries[DashboardStore.WORLD_NAME]}
+            deaths={dashboardStore.allDeaths.countries[DashboardStore.WORLD_NAME]}
+          />
+        </div>
+        <div className={styles.titles}>
+          <h1>Comparar información entre países&nbsp;</h1> 
+          {/* <span className={styles.notes__update}>
+            (Última actualización:{' '}
+            {dashboardStore.dateUpdated})
+          </span> */}
+        </div>
       </div>
-      <WorldSnapshot
-        cases={dashboardStore.allCases.countries[DashboardStore.WORLD_NAME]}
-        deaths={dashboardStore.allDeaths.countries[DashboardStore.WORLD_NAME]}
-      />
-    </div>
+      <div className={`${styles['comparation__section']} ${styles['comparation__sectionbox']}`}>
+          {renderCountrySelector(
+            dashboardStore.countries,
+            countriesToCompare,
+            setCountriesToCompare
+          )} 
+        <div className={styles.graphs__scroll}>
+          {dashboardStore.selectedCountriesCases &&
+          renderDataForSelectedCountries(
+            'Casos Confirmados',
+            dashboardStore.selectedCountriesCases,
+            dashboardStore.countryColors
+          )}
 
-    <div className={styles['span-all-col']}>
-      <div>
-        <h1 className={styles.inline}>Detailed data</h1> (updated on{' '}
-        {dashboardStore.dateUpdated})
+          {dashboardStore.selectedCountriesDeaths &&
+            renderDataForSelectedCountries(
+              'Fallecidos Confirmados',
+              dashboardStore.selectedCountriesDeaths,
+              dashboardStore.countryColors
+            )}
+        </div>
       </div>
-      {renderCountrySelector(
-        dashboardStore.countries,
-        countriesToCompare,
-        setCountriesToCompare
-      )}
     </div>
-
-    {dashboardStore.selectedCountriesCases &&
-      renderDataForSelectedCountries(
-        'Confirmed cases',
-        dashboardStore.selectedCountriesCases,
-        dashboardStore.countryColors
-      )}
-
-    {dashboardStore.selectedCountriesDeaths &&
-      renderDataForSelectedCountries(
-        'Confirmed deaths',
-        dashboardStore.selectedCountriesDeaths,
-        dashboardStore.countryColors
-      )}
   </>
 );
 
@@ -136,9 +159,7 @@ export const Dashboard: React.FC<Props> = ({ dashboardStore }) => {
 
   return (
     <>
-      <div
-        className={`${styles['col1-320px']} ${styles['col2-768px']} ${styles['col3-1024px']}`}
-      >
+      <div>
         {dashboardStore.isLoaded &&
           renderDashboard(
             dashboardStore,

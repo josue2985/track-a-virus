@@ -1,24 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
 :root {
-  --gray: #515151;
+  --orange: #E15E46;
+  --red:#D0422C;
+  --green:#0abf5e;
+  --blue-moon: #EDF0F9;
+  --castkill-white:#eff2fa;
+  --comparationbg: #fafafa;
+  --torea:#383874;
+  --bastilla:#2D2E32;
+  --violet:#5757B2;
+  --violet-menu:#383874;
+  --gray:#ddd;
+  --white:#fff;
+  --parag: 1em;
 }
-
 body {
-  font-family: Helvetica;
-  font-size: 12px;
-  color: var(---gray);
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--parag);
+  color: var(--bastilla);
+  margin: 0;
+  padding:0;
+  background: #fff;
+  height:100%;
+  min-height:100%;
+  word-break: break-word;
+  -webkit-word-break: break-word;
 }
-
-.content {
-  position: relative;
-  top: 2.7rem;
+.global__wrapper {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100vh;
+  overflow: hidden;
+  }
+.grid__sidebar { 
+  grid-area: 1 / 1 / 2 / 2; 
 }
-
-@media only screen and (min-width: 768px) {
-  body {
-    font-size: 18px;
-  }
-
-  .content {
-    top: 3.5rem;
-  }
+.grid__container { 
+  grid-area: 1 / 2 / 2 / 3; 
+  background: var(--castkill-white);
+  padding: 25px;
+  border-radius: 50px 0px 0px 0px;
+  width: calc(100vw - 250px);
 }

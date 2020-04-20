@@ -11,10 +11,13 @@ import Cookies from './static-pages/Cookies/Cookies';
 const App: FC = () => {
   return (
     <Router>
-      <Header />
-      <div className={styles.content}>
+      <div className={styles.global__wrapper}>
+        <div className={styles.grid__sidebar}>
+        <Header />
+        </div>
+        <div className={styles.grid__container}>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path='/dashboard'>
             <Dashboard />
           </Route>
           <Route path='/about'>
@@ -30,6 +33,7 @@ const App: FC = () => {
             <Cookies />
           </Route>
         </Switch>
+        </div>
       </div>
     </Router>
   );
