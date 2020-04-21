@@ -11,6 +11,7 @@ import WorldSnapshot from './WorldSnapshot/WorldSnapshot';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 import { Timeseries } from './types/Timeseries';
 import CountryColors from './types/CountryColors';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 interface Props {
   dashboardStore?: DashboardStore;
@@ -31,14 +32,15 @@ const renderCountrySelector = (
   setCountriesToCompare: Dispatch<SetStateAction<SelectOption[]>>
 ) => (
   <>
-  <div className={styles.input__container}>
-    <div className={styles.section__label}>
-      <label htmlFor='countrySelector'>
-        Selecciona <strong>uno o varios</strong> países para visualizar y comparar.
-      </label>
-    </div>
-    <div className={styles.section__input}>
-      <Select
+    <div className={styles.input__container}>
+      <div className={styles.section__label}>
+        <label htmlFor='countrySelector'>
+          Selecciona <strong>uno o varios</strong> países para visualizar y
+          comparar.
+        </label>
+      </div>
+      <div className={styles.section__input}>
+        <Select
           inputId='countrySelector'
           options={getCountrySelectOptions(allCountries)}
           isMulti
@@ -46,20 +48,19 @@ const renderCountrySelector = (
           onChange={(selected) => {
             setCountriesToCompare(selected as SelectOption[]);
           }}
-          placeholder="Selecciona los países que necesitas comparar. Escribe ¨world¨ para conocer el impacto global"
+          placeholder='Selecciona los países que necesitas comparar. Escribe world para conocer el impacto global'
           className={styles.select}
           classNamePrefix='select'
         />
+      </div>
     </div>
-  </div>
-  
   </>
 );
 // stadistics graphs
 const renderDataForSelectedCountries = (
   title: string,
   data: Timeseries,
-  countryColors: CountryColors,
+  countryColors: CountryColors
 ) => (
   <>
     <div className={styles.graphs__wrapper}>
@@ -67,15 +68,18 @@ const renderDataForSelectedCountries = (
         <div className={styles.title__text}>{title}</div>
       </div>
       <div
-      className={`${styles['graphs__dailycases']} ${styles['graphs__box']}`}>
+        className={`${styles['graphs__dailycases']} ${styles['graphs__box']} ${styles['boxhover__dailycases']}`}
+      >
         <DailyCases data={data} countryColors={countryColors} />
       </div>
-      <div 
-      className={`${styles['graphs__dailyincrease']} ${styles['graphs__box']}`}>
+      <div
+        className={`${styles['graphs__dailyincrease']} ${styles['graphs__box']} ${styles['boxhover__dailyincrease']}`}
+      >
         <DailyAbsoluteIncrease data={data} countryColors={countryColors} />
       </div>
-      <div 
-      className={`${styles['graphs__percentageincrease']} ${styles['graphs__box']}`}>
+      <div
+        className={`${styles['graphs__percentageincrease']} ${styles['graphs__box']} ${styles['boxhover__percentageincrease']}`}
+      >
         <DailyPercentageIncrease data={data} countryColors={countryColors} />
       </div>
     </div>
@@ -91,46 +95,55 @@ const renderDashboard = (
     <div className={styles.dashboard__wrapper}>
       <div className={styles.snapshot__section}>
         <div className={styles.titles}>
-          <h1>Impacto Global&nbsp;</h1> 
+          <h1>Impacto Global&nbsp;</h1>
           <span className={styles.notes__update}>
-            (Última actualización:{' '}
-            {dashboardStore.dateUpdated})
+            (Última actualización: {dashboardStore.dateUpdated})
           </span>
         </div>
         <div>
           <WorldSnapshot
             cases={dashboardStore.allCases.countries[DashboardStore.WORLD_NAME]}
-            deaths={dashboardStore.allDeaths.countries[DashboardStore.WORLD_NAME]}
+            deaths={
+              dashboardStore.allDeaths.countries[DashboardStore.WORLD_NAME]
+            }
           />
         </div>
         <div className={styles.titles}>
-          <h1>Comparar información entre países&nbsp;</h1> 
+          <h1>Comparar información entre países&nbsp;</h1>
           {/* <span className={styles.notes__update}>
             (Última actualización:{' '}
             {dashboardStore.dateUpdated})
           </span> */}
         </div>
       </div>
-      <div className={`${styles['comparation__section']} ${styles['comparation__sectionbox']}`}>
-          {renderCountrySelector(
-            dashboardStore.countries,
-            countriesToCompare,
-            setCountriesToCompare
-          )} 
+      <div
+        className={`${styles['input__section']} ${styles['input__sectionbox']}`}
+      >
+        {renderCountrySelector(
+          dashboardStore.countries,
+          countriesToCompare,
+          setCountriesToCompare
+        )}
+      </div>
+      <div
+        className={`${styles['comparation__section']} ${styles['comparation__sectionbox']}`}
+      >
         <div className={styles.graphs__scroll}>
-          {dashboardStore.selectedCountriesCases &&
-          renderDataForSelectedCountries(
-            'Casos Confirmados',
-            dashboardStore.selectedCountriesCases,
-            dashboardStore.countryColors
-          )}
+          <Scrollbars autoHideTimeout={1000}>
+            {dashboardStore.selectedCountriesCases &&
+              renderDataForSelectedCountries(
+                'Casos Confirmados',
+                dashboardStore.selectedCountriesCases,
+                dashboardStore.countryColors
+              )}
 
-          {dashboardStore.selectedCountriesDeaths &&
-            renderDataForSelectedCountries(
-              'Fallecidos Confirmados',
-              dashboardStore.selectedCountriesDeaths,
-              dashboardStore.countryColors
-            )}
+            {dashboardStore.selectedCountriesDeaths &&
+              renderDataForSelectedCountries(
+                'Fallecidos Confirmados',
+                dashboardStore.selectedCountriesDeaths,
+                dashboardStore.countryColors
+              )}
+          </Scrollbars>
         </div>
       </div>
     </div>

@@ -2,11 +2,11 @@
   padding: 20px 0px 0px 25px;
 }
 .nav__container {
-  margin-top:70px;
+  margin-top: 70px;
 }
 .menu {
   display: flex;
-  color:var(--bastilla);
+  color: var(--bastilla);
   line-height: 3.4;
   font-weight: 600;
   text-decoration: none;
@@ -29,7 +29,7 @@
 }
 
 .menu.active {
-  color:var(--violet-menu);
+  color: var(--violet-menu);
 }
 .menu.active:before {
   content: '';
@@ -44,16 +44,15 @@
   background: var(--orange);
 }
 .menu i svg.icon {
-  fill:var(--bastilla);
-  stroke:var(--bastilla);
+  fill: var(--bastilla);
+  stroke: var(--bastilla);
   height: 20px;
   padding: 16px 3px 0px 5px;
 }
 .menu.active i svg.icon {
-  fill:var(--orange);
-  stroke:var(--orange);
+  fill: var(--orange);
+  stroke: var(--orange);
 }
-
 
 /* 
 

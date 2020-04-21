@@ -1,4 +1,7 @@
 export interface IDashboardCss {
+  boxhover__dailycases: string;
+  boxhover__dailyincrease: string;
+  boxhover__percentageincrease: string;
   comparation__section: string;
   comparation__sectionbox: string;
   dashboard__wrapper: string;
@@ -10,6 +13,8 @@ export interface IDashboardCss {
   graphs__title: string;
   graphs__wrapper: string;
   input__container: string;
+  input__section: string;
+  input__sectionbox: string;
   notes__update: string;
   section__input: string;
   section__label: string;

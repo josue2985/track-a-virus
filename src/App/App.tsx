@@ -13,26 +13,26 @@ const App: FC = () => {
     <Router>
       <div className={styles.global__wrapper}>
         <div className={styles.grid__sidebar}>
-        <Header />
+          <Header />
         </div>
         <div className={styles.grid__container}>
-        <Switch>
-          <Route exact path='/dashboard'>
-            <Dashboard />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/data'>
-            <Data />
-          </Route>
-          <Route path='/roadmap'>
-            <Roadmap />
-          </Route>
-          <Route path='/cookies'>
-            <Cookies />
-          </Route>
-        </Switch>
+          <Switch>
+            <Route exact path='/dashboard'>
+              <Dashboard />
+            </Route>
+            <Route path='/about'>
+              <About />
+            </Route>
+            <Route path='/data'>
+              <Data />
+            </Route>
+            <Route path='/roadmap'>
+              <Roadmap />
+            </Route>
+            <Route path='/cookies'>
+              <Cookies />
+            </Route>
+          </Switch>
         </div>
       </div>
     </Router>

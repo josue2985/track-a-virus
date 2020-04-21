@@ -9,6 +9,7 @@ export interface IWorldSnapshotCss {
   number__cases: string;
   number__death: string;
   pill__growth: string;
+  pill__label: string;
   snap__box1: string;
   snap__box2: string;
   snap__box3: string;
