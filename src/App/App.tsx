@@ -1,5 +1,10 @@
 import React, { FC } from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import styles from './App.css';
 import Dashboard from './Dashboard/Dashboard';
 import Header from './Header/Header';
@@ -35,6 +40,7 @@ const App: FC = () => {
           </Switch>
         </div>
       </div>
+      <Redirect exact from='/' to='dashboard' />
     </Router>
   );
 };

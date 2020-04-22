@@ -128,7 +128,7 @@ const renderDashboard = (
       <div
         className={`${styles['comparation__section']} ${styles['comparation__sectionbox']}`}
       >
-        <div className={styles.graphs__scroll}>
+        <div className={`${styles['graphs__scroll']} ${styles['hide-mobile']}`}>
           <Scrollbars autoHideTimeout={1000}>
             {dashboardStore.selectedCountriesCases &&
               renderDataForSelectedCountries(
@@ -144,6 +144,21 @@ const renderDashboard = (
                 dashboardStore.countryColors
               )}
           </Scrollbars>
+        </div>
+        <div className={`${styles['graphs__scroll']} ${styles['show-mobile']}`}>
+          {dashboardStore.selectedCountriesCases &&
+            renderDataForSelectedCountries(
+              'Casos Confirmados',
+              dashboardStore.selectedCountriesCases,
+              dashboardStore.countryColors
+            )}
+
+          {dashboardStore.selectedCountriesDeaths &&
+            renderDataForSelectedCountries(
+              'Fallecidos Confirmados',
+              dashboardStore.selectedCountriesDeaths,
+              dashboardStore.countryColors
+            )}
         </div>
       </div>
     </div>

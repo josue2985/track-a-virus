@@ -12,6 +12,7 @@ export interface IDashboardCss {
   graphs__scroll: string;
   graphs__title: string;
   graphs__wrapper: string;
+  'hide-mobile': string;
   input__container: string;
   input__section: string;
   input__sectionbox: string;
@@ -20,6 +21,7 @@ export interface IDashboardCss {
   section__label: string;
   select: string;
   select__control: string;
+  'show-mobile': string;
   snapshot__section: string;
   title__text: string;
   titles: string;

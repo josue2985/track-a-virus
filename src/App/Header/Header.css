@@ -54,6 +54,43 @@
   stroke: var(--orange);
 }
 
+@media only screen and (max-width: 1224px) {
+  /* Styles */
+  .stack__mobile {
+    display: flex;
+  }
+  .stack__logo {
+    padding: 20px 0px 0px 25px;
+  }
+  .nav__container {
+    margin-left: auto;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  .menu {
+    display: inline-flex;
+  }
+  .menu.active:before {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  /* Styles */
+  .nav__text {
+    display: none;
+  }
+  .nav__container {
+    margin-left: auto;
+    margin-top: 5px;
+    margin-right: 20px;
+    display: inline-flex;
+  }
+  .stack__logo {
+    padding: 5px 0px 0px 25px;
+  }
+}
+
 /* 
 
 .header {

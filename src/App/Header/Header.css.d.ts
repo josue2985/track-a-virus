@@ -3,7 +3,9 @@ export interface IHeaderCss {
   icon: string;
   menu: string;
   nav__container: string;
+  nav__text: string;
   stack__logo: string;
+  stack__mobile: string;
 }
 
 export const locals: IHeaderCss;

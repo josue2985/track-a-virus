@@ -150,3 +150,77 @@
 .btn__symptons:hover {
   /* box-shadow: 1px 2px 0px #ff598685; */
 }
+@media only screen and (max-width: 1224px) {
+  /* Styles */
+  .pill__growth {
+    margin-top: 10px;
+    padding: 2px 20px;
+    border-radius: 15px;
+    float: none;
+    position: inherit;
+    bottom: 112px;
+  }
+  .pill__label {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 0.6em;
+    font-weight: 500;
+  }
+  .box {
+    height: 148px;
+  }
+  .number__death {
+    font-size: 2.6em;
+  }
+  .number__cases {
+    font-size: 2.6em;
+  }
+  .symptoms {
+    min-height: 157px;
+  }
+  .image__girl {
+    width: 216px;
+    bottom: 136px;
+    right: -20px;
+  }
+  .subtitle__symptoms {
+    max-width: 166px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  /* Styles */
+  .snap__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  .snap__box1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .snap__box2 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .snap__box3 {
+    display: none;
+  }
+  .pill__growth {
+    background: var(--blue-moon);
+    width: fit-content;
+    padding: 2px 20px;
+    border-radius: 15px;
+    float: right;
+    left: 22px;
+    position: relative;
+    bottom: 119px;
+  }
+  .pill__label {
+    display: block;
+    font-size: 0.6em;
+    font-weight: 500;
+  }
+  .box {
+    height: 96px;
+  }
+}
