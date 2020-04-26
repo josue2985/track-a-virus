@@ -11,7 +11,7 @@ interface Props {
 const DailyCases: FC<Props> = ({ data, countryColors }) => (
   <>
     <div>
-      <div>Total</div>
+      <div>Total Casos</div>
       <LineChart data={data} countryColors={countryColors} />
     </div>
   </>

@@ -2,7 +2,7 @@
 .dashboard__wrapper {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 264px 118px 1fr;
+  grid-template-rows: 224px 108px 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-template-areas:
@@ -20,7 +20,7 @@
   background-color: var(--comparationbg);
   border-radius: 20px;
   margin: 10px;
-  padding: 20px;
+  padding: 15px 20px;
   transition: all 0.3s ease-out;
 }
 .input__sectionbox:hover {
@@ -37,7 +37,7 @@
   padding: 5px 20px;
 }
 .graphs__scroll {
-  height: calc(100vh - 443px);
+  height: calc(100vh - 369px);
   overflow: auto;
 }
 
@@ -75,15 +75,15 @@
 
 .boxhover__dailycases:hover {
   box-shadow: 1px 2px 12px #cdcdec;
-  transform: scale(1.1) translate(38px, 10px);
+  /* transform: scale(1.1) translate(38px, 10px); */
 }
 .boxhover__dailyincrease:hover {
   box-shadow: 1px 2px 12px #cdcdec;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 .boxhover__percentageincrease:hover {
   box-shadow: 1px 2px 12px #cdcdec;
-  transform: scale(1.1) translate(-30px, 10px);
+  /* transform: scale(1.1) translate(-30px, 10px); */
 }
 
 /* grid graphs layout */
@@ -235,6 +235,9 @@ strong {
   display: none;
 }
 @media only screen and (max-width: 960px) {
+  h1 {
+    margin: 2px 0px;
+  }
   .hide-mobile {
     display: none;
   }
@@ -249,10 +252,12 @@ strong {
     grid-template-rows: auto auto auto;
   }
   .input__container {
-    grid-template-rows: 49px auto;
+    grid-template-rows: 26px auto;
   }
   .section__label {
     text-align: center;
+    font-size: 0.9em;
+    padding: 0px;
   }
   .select div[class^='select__control'] {
     background: #edf0f8;
@@ -263,7 +268,8 @@ strong {
     padding: 0px 0px;
   }
   .input__sectionbox {
-    padding: 12px;
+    padding: 8px 12px;
+    margin: 0px 10px;
   }
   .graphs__wrapper {
     display: grid;

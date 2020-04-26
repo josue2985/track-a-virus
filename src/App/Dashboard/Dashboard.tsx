@@ -35,8 +35,7 @@ const renderCountrySelector = (
     <div className={styles.input__container}>
       <div className={styles.section__label}>
         <label htmlFor='countrySelector'>
-          Selecciona <strong>uno o varios</strong> países para visualizar y
-          comparar.
+          Selecciona <strong>uno o varios</strong> países.
         </label>
       </div>
       <div className={styles.section__input}>

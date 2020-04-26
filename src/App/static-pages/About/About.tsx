@@ -1,68 +1,89 @@
 import React, { FC } from 'react';
+import styles from '../../App.css';
 
 const About: FC = () => (
-  <div>
-    <h1>About this project</h1>
+  <div className={styles.about__section}>
+    <h1>Acerca de este Proyecto</h1>
     <ul>
       <li>
-        Provides visualusation of the{' '}
+        La información es tomada desde{' '}
         <a
           href='https://github.com/CSSEGISandData/COVID-19'
           target='_blank'
           rel='noopener noreferrer'
         >
-          John Hopkins COVID-19 data
+          John Hopkins COVID-19 data.
         </a>
       </li>
       <li>
-        Inspired by many other COVID dashboard, but focuses on providing
-        detailed data and comparison
+        Creado originalmente por Mike Borozdin - London based Software engineer.
+      </li>
+      <li>UX/UI creada por Josué Brito - Ecuador based UX engineer.</li>
+      <li>
+        <a
+          href='https://github.com/josue2985/track-a-virus'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Proyecto open-source - cualquiera puede tener el codigo.
+        </a>
       </li>
       <li>
-        More features are coming -{' '}
+        Mejoras en camino -{' '}
         <a
           href='https://github.com/mikeborozdin/track-a-virus/projects/1'
           target='_blank'
           rel='noopener noreferrer'
         >
           {' '}
-          there is a public roadmap
+          existe un RoadMap público del creador original.
         </a>
       </li>
       <li>
-        If you have any ideas/issues, please{' '}
+        Si tienes alguna idea o quieres reportar un problema, por favor{' '}
         <a
-          href='https://github.com/mikeborozdin/track-a-virus/issues'
+          href='https://github.com/josue2985/track-a-virus/issues'
           target='_blank'
           rel='noopener noreferrer'
         >
-          report them here
+          Repórtalo aquí.
         </a>
       </li>
+      <li>Todos son Bienvenidos a Contribuir.</li>
       <li>
+        Puedes ponerte en contacto conmigo por{' '}
+        <a href='mailto:josue.brito.j@gmail.com'>e-mail</a> o seguirme en{' '}
         <a
-          href='https://github.com/mikeborozdin/track-a-virus'
+          href='https://www.instagram.com/ilove.ux/'
           target='_blank'
           rel='noopener noreferrer'
         >
-          It&apos;s an open-source project - everybody can get the source code
+          Instagram.
         </a>
       </li>
-      <li>And everybody is welcome to contribute</li>
+    </ul>
+    <h1>Fuenta de Información</h1>
+    <ul>
+      <li>Información provista por ¨The Jhon Hopkins University¨.</li>
+      <li>Actualización Diaria.</li>
       <li>
-        It&apos;s originally created by Mike Borozdin - a London based software
-        engineer
-      </li>
-      <li>
-        You can get in touch with me on{' '}
-        <a href='mailto:mike.borozdin@gmail.com'>e-mail</a> or follow me on{' '}
+        Puedes ver los datos sin procesar{' '}
         <a
-          href='https://twitter.com/mikeborozdin'
+          href='https://github.com/CSSEGISandData/COVID-19'
           target='_blank'
           rel='noopener noreferrer'
         >
-          Twitter
+          Aquí.
         </a>
+      </li>
+    </ul>
+    <h1>Cookies & Politicas de Privacidad</h1>
+    <ul>
+      <li>Las únicas cookies que utilizo son de Google Analytics.</li>
+      <li>Ellos nos ayudan a entender como se usa esta web.</li>
+      <li>
+        Ni yo ni nadie de los que contribuye en este proyecto guarda información
+        ni identificacion personal.
       </li>
     </ul>
   </div>

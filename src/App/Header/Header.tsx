@@ -9,7 +9,7 @@ const Header: FC = () => {
   return (
     <div className={styles.stack__mobile}>
       <div className={styles.stack__logo}>
-        <Logo width={'70%'} />
+        <Logo width={'90%'} />
       </div>
       <nav className={styles.nav__container}>
         <NavLink
